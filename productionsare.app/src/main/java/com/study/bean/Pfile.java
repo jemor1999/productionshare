@@ -1,12 +1,13 @@
 package com.study.bean;
 
 public class Pfile {
+//    id
     private Integer pfileId;
-
+//    文件名，含路径
     private String pfileName;
-
+//    路径，不含文件名
     private String pfilePath;
-
+//    文件描述
     private String pfileInfo;
 
     public Integer getPfileId() {

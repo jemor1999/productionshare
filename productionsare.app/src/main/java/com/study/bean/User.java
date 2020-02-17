@@ -1,18 +1,22 @@
 package com.study.bean;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class User {
+//    用户id
     private Integer userId;
-
+//    用户帐号
     private String userAccount;
-
-    private String userOwd;
-
+//    用户密码
+    private String userPwd;
+//    用户昵称
     private String userNickName;
-
+//    用户个性签名
     private String userSignature;
-
+//    用户性别
     private String userSex;
-
+//    用户头像（路径）
     private String userHeadImageLocation;
 
     public Integer getUserId() {
@@ -31,12 +35,19 @@ public class User {
         this.userAccount = userAccount == null ? null : userAccount.trim();
     }
 
-    public String getUserOwd() {
-        return userOwd;
+    public String getUserPwd() {
+        return userPwd;
     }
 
-    public void setUserOwd(String userOwd) {
-        this.userOwd = userOwd == null ? null : userOwd.trim();
+    public void setUserPwd(String userPwd) throws NoSuchAlgorithmException {
+        if (this.userPwd  == null){
+            this.userPwd = null;
+        }else {
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            md5.update(userPwd.trim().getBytes());
+            byte[] digest = md5.digest();
+            this.userPwd = new String(digest);
+        }
     }
 
     public String getUserNickName() {
@@ -79,7 +90,7 @@ public class User {
         sb.append("Hash = ").append(hashCode());
         sb.append(", userId=").append(userId);
         sb.append(", userAccount=").append(userAccount);
-        sb.append(", userOwd=").append(userOwd);
+        sb.append(", userPwd=").append(userPwd);
         sb.append(", userNickName=").append(userNickName);
         sb.append(", userSignature=").append(userSignature);
         sb.append(", userSex=").append(userSex);
@@ -102,7 +113,7 @@ public class User {
         User other = (User) that;
         return (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
             && (this.getUserAccount() == null ? other.getUserAccount() == null : this.getUserAccount().equals(other.getUserAccount()))
-            && (this.getUserOwd() == null ? other.getUserOwd() == null : this.getUserOwd().equals(other.getUserOwd()))
+            && (this.getUserPwd() == null ? other.getUserPwd() == null : this.getUserPwd().equals(other.getUserPwd()))
             && (this.getUserNickName() == null ? other.getUserNickName() == null : this.getUserNickName().equals(other.getUserNickName()))
             && (this.getUserSignature() == null ? other.getUserSignature() == null : this.getUserSignature().equals(other.getUserSignature()))
             && (this.getUserSex() == null ? other.getUserSex() == null : this.getUserSex().equals(other.getUserSex()))
@@ -115,7 +126,7 @@ public class User {
         int result = 1;
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         result = prime * result + ((getUserAccount() == null) ? 0 : getUserAccount().hashCode());
-        result = prime * result + ((getUserOwd() == null) ? 0 : getUserOwd().hashCode());
+        result = prime * result + ((getUserPwd() == null) ? 0 : getUserPwd().hashCode());
         result = prime * result + ((getUserNickName() == null) ? 0 : getUserNickName().hashCode());
         result = prime * result + ((getUserSignature() == null) ? 0 : getUserSignature().hashCode());
         result = prime * result + ((getUserSex() == null) ? 0 : getUserSex().hashCode());
