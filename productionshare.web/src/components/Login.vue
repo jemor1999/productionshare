@@ -14,9 +14,9 @@
 </template>
 
 <script>
-  export default {
-    name: "${COMPONENT_NAME}"
-  }
+export default {
+  name: 'Login'
+}
 </script>
 
 <style scoped>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisCodeHelperDatasource">
+    <option name="projectProfile">
+      <ProjectProfile>
+        <option name="batchInsert" value="true" />
+        <option name="insertOnDuplicateKey" value="true" />
+        <option name="javaMapperPackage" value="com.study.dao" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/productionsare.app/src/main/java" />
+        <option name="javaModelPackage" value="com.study.bean" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/productionsare.app/src/main/java" />
+        <option name="javaModelTrimString" value="true" />
+        <option name="lastDatabaseCrudChooseModuleName" value="productionsare.app" />
+        <option name="mapperAnnotaion" value="true" />
+        <option name="modelAddEqualHashCode" value="true" />
+        <option name="modelAddToString" value="true" />
+        <option name="moduleNameToPackageAndPathMap">
+          <map>
+            <entry key="productionsare.app">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.study.dao" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/productionsare.app/src/main/java" />
+                  <option name="javaModelPacakge" value="com.study.bean" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/productionsare.app/src/main/java" />
+                  <option name="xmlPackage" value="com.study.dao" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/productionsare.app/src/main/resources" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="tableGenerateConfigs">
+          <map>
+            <entry key="productionshare:pfile">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="pfile_id" />
+                  <option name="insertOnDuplicateKey" value="true" />
+                  <option name="javaModelName" value="Pfile" />
+                  <option name="moduleName" value="productionsare.app" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="productionshare:user">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="user_id" />
+                  <option name="insertOnDuplicateKey" value="true" />
+                  <option name="javaModelName" value="User" />
+                  <option name="moduleName" value="productionsare.app" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="updateBatchSelective" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="updateBatch" value="true" />
+        <option name="updateBatchSelective" value="true" />
+        <option name="useExample" value="true" />
+        <option name="xmlMapperPackage" value="com.study.dao" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/productionsare.app/src/main/resources" />
+      </ProjectProfile>
+    </option>
+  </component>
+</project>
