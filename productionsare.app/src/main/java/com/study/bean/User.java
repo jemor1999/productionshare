@@ -1,5 +1,7 @@
 package com.study.bean;
 
+import com.study.utils.MD5;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -40,13 +42,10 @@ public class User {
     }
 
     public void setUserPwd(String userPwd) throws NoSuchAlgorithmException {
-        if (this.userPwd  == null){
+        if (userPwd  == null){
             this.userPwd = null;
         }else {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            md5.update(userPwd.trim().getBytes());
-            byte[] digest = md5.digest();
-            this.userPwd = new String(digest);
+            this.userPwd = MD5.md5(userPwd.trim());
         }
     }
 
