@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.study.bean.User">
+    <!--@mbg.generated-->
+    <!--@Table user-->
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_account" jdbcType="VARCHAR" property="userAccount" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_nick_name" jdbcType="VARCHAR" property="userNickName" />
+    <result column="user_signature" jdbcType="VARCHAR" property="userSignature" />
+    <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
+    <result column="user_head_image_location" jdbcType="VARCHAR" property="userHeadImageLocation" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_id, user_account, user_pwd, user_nick_name, user_signature, user_sex, user_head_image_location
+  </sql>
+  <select id="selectByExample" parameterType="com.study.bean.UserExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.study.bean.UserExample">
+    <!--@mbg.generated-->
+    delete from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+      insert into user (user_account, user_pwd, user_nick_name,
+      user_signature, user_sex, user_head_image_location
+      )
+      values (#{userAccount,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{userNickName,jdbcType=VARCHAR},
+      #{userSignature,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{userHeadImageLocation,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userAccount != null">
+        user_account,
+      </if>
+      <if test="userPwd != null">
+        user_pwd,
+      </if>
+      <if test="userNickName != null">
+        user_nick_name,
+      </if>
+      <if test="userSignature != null">
+        user_signature,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="userHeadImageLocation != null">
+        user_head_image_location,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userAccount != null">
+        #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+          #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickName != null">
+        #{userNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSignature != null">
+        #{userSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userHeadImageLocation != null">
+        #{userHeadImageLocation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.study.bean.UserExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update user
+    <set>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userAccount != null">
+        user_account = #{record.userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPwd != null">
+          user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userNickName != null">
+        user_nick_name = #{record.userNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSignature != null">
+        user_signature = #{record.userSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSex != null">
+        user_sex = #{record.userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userHeadImageLocation != null">
+        user_head_image_location = #{record.userHeadImageLocation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+      update user
+      set user_id = #{record.userId,jdbcType=INTEGER},
+      user_account = #{record.userAccount,jdbcType=VARCHAR},
+      user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      user_nick_name = #{record.userNickName,jdbcType=VARCHAR},
+      user_signature = #{record.userSignature,jdbcType=VARCHAR},
+      user_sex = #{record.userSex,jdbcType=VARCHAR},
+      user_head_image_location = #{record.userHeadImageLocation,jdbcType=VARCHAR}
+      <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.study.bean.User">
+    <!--@mbg.generated-->
+    update user
+    <set>
+      <if test="userAccount != null">
+        user_account = #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+          user_pwd = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickName != null">
+        user_nick_name = #{userNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSignature != null">
+        user_signature = #{userSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userHeadImageLocation != null">
+        user_head_image_location = #{userHeadImageLocation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.study.bean.User">
+    <!--@mbg.generated-->
+      update user
+      set user_account = #{userAccount,jdbcType=VARCHAR},
+      user_pwd = #{userPwd,jdbcType=VARCHAR},
+      user_nick_name = #{userNickName,jdbcType=VARCHAR},
+      user_signature = #{userSignature,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_head_image_location = #{userHeadImageLocation,jdbcType=VARCHAR}
+      where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update user
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="user_account = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userAccount,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="user_pwd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+            when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userPwd,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="user_nick_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userNickName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="user_signature = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userSignature,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="user_sex = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userSex,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="user_head_image_location = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userHeadImageLocation,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where user_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.userId,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update user
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="user_account = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userAccount != null">
+            when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userAccount,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="user_pwd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userPwd != null">
+              when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userPwd,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="user_nick_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userNickName != null">
+            when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userNickName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="user_signature = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userSignature != null">
+            when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userSignature,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="user_sex = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userSex != null">
+            when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userSex,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="user_head_image_location = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userHeadImageLocation != null">
+            when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userHeadImageLocation,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where user_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.userId,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="user_id" keyProperty="userId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user
+    (user_account, user_pwd, user_nick_name, user_signature, user_sex, user_head_image_location
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+        (#{item.userAccount,jdbcType=VARCHAR}, #{item.userPwd,jdbcType=VARCHAR}, #{item.userNickName,jdbcType=VARCHAR},
+        #{item.userSignature,jdbcType=VARCHAR}, #{item.userSex,jdbcType=VARCHAR},
+        #{item.userHeadImageLocation,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      user_account,
+      user_pwd,
+      user_nick_name,
+      user_signature,
+      user_sex,
+      user_head_image_location,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+        #{userAccount,jdbcType=VARCHAR},
+        #{userPwd,jdbcType=VARCHAR},
+        #{userNickName,jdbcType=VARCHAR},
+        #{userSignature,jdbcType=VARCHAR},
+        #{userSex,jdbcType=VARCHAR},
+        #{userHeadImageLocation,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+        user_account = #{userAccount,jdbcType=VARCHAR},
+        user_pwd = #{userPwd,jdbcType=VARCHAR},
+        user_nick_name = #{userNickName,jdbcType=VARCHAR},
+        user_signature = #{userSignature,jdbcType=VARCHAR},
+        user_sex = #{userSex,jdbcType=VARCHAR},
+        user_head_image_location = #{userHeadImageLocation,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userAccount != null">
+        user_account,
+      </if>
+      <if test="userPwd != null">
+        user_pwd,
+      </if>
+      <if test="userNickName != null">
+        user_nick_name,
+      </if>
+      <if test="userSignature != null">
+        user_signature,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="userHeadImageLocation != null">
+        user_head_image_location,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userAccount != null">
+        #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+          #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickName != null">
+        #{userNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSignature != null">
+        #{userSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userHeadImageLocation != null">
+        #{userHeadImageLocation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userAccount != null">
+        user_account = #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+          user_pwd = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickName != null">
+        user_nick_name = #{userNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSignature != null">
+        user_signature = #{userSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userHeadImageLocation != null">
+        user_head_image_location = #{userHeadImageLocation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
