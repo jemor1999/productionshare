@@ -14,6 +14,10 @@ export default {
 
   //之后写照着这个抄
   saveTypeEvent(request = {}) {
-    return axios.post(config.baseUrl + "/uplus/type/event/add", request).then((response) => Promise.resolve(response)).catch((error) => Promise.reject(error))
+    return axios.post(config.baseUrl + "/uplus/type/event/add", request).then(
+      (response) => Promise.resolve(response)
+    ).catch(
+      (error) => Promise.reject(error)
+    )
   }
 }
