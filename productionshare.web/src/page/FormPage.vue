@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{hasAccount}}
+    <router-view/>
   </div>
 </template>
 
@@ -8,10 +8,10 @@
 export default {
   name: "FormPage",
   data(){
-    return {
-      hasAccount:false
-    }
+  },
+  created() {
   }
+
 }
 </script>
 

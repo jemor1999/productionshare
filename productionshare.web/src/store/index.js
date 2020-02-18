@@ -1,6 +1,6 @@
 import Vue from "vue"
 import Vuex from "vuex"
-import User from "./modules/User";
+import user from "./modules/User";
 Vue.use(Vuex)
 
 
@@ -9,9 +9,9 @@ export default new Vuex.Store({
   mutations,
   actions,
   getters,
-  modules:[
-    User
-  ]
+  modules:{
+    user
+  }
 })
 
 
