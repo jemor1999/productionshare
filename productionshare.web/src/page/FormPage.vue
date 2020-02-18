@@ -1,14 +1,16 @@
 <template>
   <div>
-
+    {{hasAccount}}
   </div>
 </template>
 
 <script>
 export default {
   name: "FormPage",
-  data: {
-    hasAccount:false
+  data(){
+    return {
+      hasAccount:false
+    }
   }
 }
 </script>
