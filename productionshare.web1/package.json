@@ -17,7 +17,8 @@
     "cnpm": "^6.1.1",
     "quasar": "^1.0.0",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -71,6 +72,15 @@
   },
   "babel": {
     "plugins": [
+      [
+        "transform-imports",
+        {
+          "quasar": {
+            "transform": "quasar/dist/babel-transforms/imports.js",
+            "preventFullImport": true
+          }
+        }
+      ],
       [
         "transform-imports",
         {
