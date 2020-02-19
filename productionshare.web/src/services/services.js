@@ -1,5 +1,5 @@
 import axios from 'axios'
-import config from '../../../config'
+import config from "../config";
 axios.defaults.baseURL = config.baseUrl
 //axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 axios.defaults.headers['XPS-Version'] = '1.0.0'
@@ -22,6 +22,13 @@ export default {
   },
   login(request = {}) {
     return axios.post(config.baseUrl + "/user/login", request).then(
+      (response) => Promise.resolve(response)
+    ).catch(
+      (error) => Promise.reject(error)
+    )
+  },
+  register(request = {}) {
+    return axios.post(config.baseUrl + "/user/register", request).then(
       (response) => Promise.resolve(response)
     ).catch(
       (error) => Promise.reject(error)
