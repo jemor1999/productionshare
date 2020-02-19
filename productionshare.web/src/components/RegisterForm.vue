@@ -50,7 +50,11 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-    //  先提交到后台
+      this.$services.login(this.user).then((response) => {
+        this.$store.dispatch('login',response.data);
+      }).catch((ero) => {
+        alert("注册失败！")
+      })
     }
   }
 }

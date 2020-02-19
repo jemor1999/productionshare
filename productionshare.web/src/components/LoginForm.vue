@@ -42,7 +42,11 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-
+      this.$services.login(this.user).then((response) => {
+        this.$store.dispatch('login',response.data);
+      }).catch((ero) => {
+        alert("登录失败！")
+      })
     }
   }
 }

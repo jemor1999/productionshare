@@ -1,5 +1,5 @@
 import axios from 'axios'
-import config from '../../../config'
+import config from "../config";
 axios.defaults.baseURL = config.baseUrl
 //axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 axios.defaults.headers['XPS-Version'] = '1.0.0'

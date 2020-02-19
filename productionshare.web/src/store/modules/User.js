@@ -1,10 +1,10 @@
 // 可以模块划分
 
 const state = {
-  userId:'1',
-  userAccount:'2',
-  userPwd:'3',
-  userNickName:'5',
+  userId:'',
+  userAccount:'',
+  userPwd:'',
+  userNickName:'',
   userSignature:'',
   userSex:'',
   userHeadImageLocation:''
@@ -12,19 +12,29 @@ const state = {
 
 // getters
 const getters = {
-  getUser:() => {
+  'getUser':(state) => {
     return state
   }
 }
 
 // actions
 const actions = {
-
+  'login':(context,user)=> {
+    context.commit('login',user)
+  }
 }
 
 // mutations
 const mutations = {
-
+  'login':(state,user) => {
+    state.userId=user.userId
+    state.userAccount= user.userAccount
+    state.userPwd= user.userPwd
+    state.userNickName= user.userNickName,
+    state.userSignature= user.userSignature
+    state.userSex= user.userSex
+    state.userHeadImageLocation= user.userHeadImageLocation
+  }
 }
 
 export default {
