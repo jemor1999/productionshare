@@ -19,5 +19,12 @@ export default {
     ).catch(
       (error) => Promise.reject(error)
     )
+  },
+  login(request = {}) {
+    return axios.post(config.baseUrl + "/user/login", request).then(
+      (response) => Promise.resolve(response)
+    ).catch(
+      (error) => Promise.reject(error)
+    )
   }
 }

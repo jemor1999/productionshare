@@ -8,6 +8,7 @@
     <result column="pfile_name" jdbcType="VARCHAR" property="pfileName" />
     <result column="pfile_path" jdbcType="VARCHAR" property="pfilePath" />
     <result column="pfile_info" jdbcType="VARCHAR" property="pfileInfo" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--@mbg.generated-->
@@ -71,7 +72,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    pfile_id, pfile_name, pfile_path, pfile_info
+    pfile_id, pfile_name, pfile_path, pfile_info, user_id
   </sql>
   <select id="selectByExample" parameterType="com.study.bean.PfileExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -109,10 +110,10 @@
   </delete>
   <insert id="insert" keyColumn="pfile_id" keyProperty="pfileId" parameterType="com.study.bean.Pfile" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into pfile (pfile_name, pfile_path, pfile_info
-      )
-    values (#{pfileName,jdbcType=VARCHAR}, #{pfilePath,jdbcType=VARCHAR}, #{pfileInfo,jdbcType=VARCHAR}
-      )
+    insert into pfile (pfile_name, pfile_path, pfile_info, 
+      user_id)
+    values (#{pfileName,jdbcType=VARCHAR}, #{pfilePath,jdbcType=VARCHAR}, #{pfileInfo,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="pfile_id" keyProperty="pfileId" parameterType="com.study.bean.Pfile" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -127,6 +128,9 @@
       <if test="pfileInfo != null">
         pfile_info,
       </if>
+      <if test="userId != null">
+        user_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="pfileName != null">
@@ -137,6 +141,9 @@
       </if>
       <if test="pfileInfo != null">
         #{pfileInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -163,6 +170,9 @@
       <if test="record.pfileInfo != null">
         pfile_info = #{record.pfileInfo,jdbcType=VARCHAR},
       </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -174,7 +184,8 @@
     set pfile_id = #{record.pfileId,jdbcType=INTEGER},
       pfile_name = #{record.pfileName,jdbcType=VARCHAR},
       pfile_path = #{record.pfilePath,jdbcType=VARCHAR},
-      pfile_info = #{record.pfileInfo,jdbcType=VARCHAR}
+      pfile_info = #{record.pfileInfo,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -192,6 +203,9 @@
       <if test="pfileInfo != null">
         pfile_info = #{pfileInfo,jdbcType=VARCHAR},
       </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
     </set>
     where pfile_id = #{pfileId,jdbcType=INTEGER}
   </update>
@@ -200,7 +214,8 @@
     update pfile
     set pfile_name = #{pfileName,jdbcType=VARCHAR},
       pfile_path = #{pfilePath,jdbcType=VARCHAR},
-      pfile_info = #{pfileInfo,jdbcType=VARCHAR}
+      pfile_info = #{pfileInfo,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER}
     where pfile_id = #{pfileId,jdbcType=INTEGER}
   </update>
   <update id="updateBatch" parameterType="java.util.List">
@@ -220,6 +235,11 @@
       <trim prefix="pfile_info = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
           when pfile_id = #{item.pfileId,jdbcType=INTEGER} then #{item.pfileInfo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="user_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when pfile_id = #{item.pfileId,jdbcType=INTEGER} then #{item.userId,jdbcType=INTEGER}
         </foreach>
       </trim>
     </trim>
@@ -253,6 +273,13 @@
           </if>
         </foreach>
       </trim>
+      <trim prefix="user_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.userId != null">
+            when pfile_id = #{item.pfileId,jdbcType=INTEGER} then #{item.userId,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
     </trim>
     where pfile_id in
     <foreach close=")" collection="list" item="item" open="(" separator=", ">
@@ -262,11 +289,11 @@
   <insert id="batchInsert" keyColumn="pfile_id" keyProperty="pfileId" parameterType="map" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into pfile
-    (pfile_name, pfile_path, pfile_info)
+    (pfile_name, pfile_path, pfile_info, user_id)
     values
     <foreach collection="list" item="item" separator=",">
-      (#{item.pfileName,jdbcType=VARCHAR}, #{item.pfilePath,jdbcType=VARCHAR}, #{item.pfileInfo,jdbcType=VARCHAR}
-        )
+      (#{item.pfileName,jdbcType=VARCHAR}, #{item.pfilePath,jdbcType=VARCHAR}, #{item.pfileInfo,jdbcType=VARCHAR}, 
+        #{item.userId,jdbcType=INTEGER})
     </foreach>
   </insert>
   <insert id="insertOrUpdate" keyColumn="pfile_id" keyProperty="pfileId" parameterType="com.study.bean.Pfile" useGeneratedKeys="true">
@@ -279,6 +306,7 @@
       pfile_name,
       pfile_path,
       pfile_info,
+      user_id,
     </trim>
     values
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -288,6 +316,7 @@
       #{pfileName,jdbcType=VARCHAR},
       #{pfilePath,jdbcType=VARCHAR},
       #{pfileInfo,jdbcType=VARCHAR},
+      #{userId,jdbcType=INTEGER},
     </trim>
     on duplicate key update 
     <trim suffixOverrides=",">
@@ -297,6 +326,7 @@
       pfile_name = #{pfileName,jdbcType=VARCHAR},
       pfile_path = #{pfilePath,jdbcType=VARCHAR},
       pfile_info = #{pfileInfo,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
     </trim>
   </insert>
   <insert id="insertOrUpdateSelective" keyColumn="pfile_id" keyProperty="pfileId" parameterType="com.study.bean.Pfile" useGeneratedKeys="true">
@@ -315,6 +345,9 @@
       <if test="pfileInfo != null">
         pfile_info,
       </if>
+      <if test="userId != null">
+        user_id,
+      </if>
     </trim>
     values
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -330,6 +363,9 @@
       <if test="pfileInfo != null">
         #{pfileInfo,jdbcType=VARCHAR},
       </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
     </trim>
     on duplicate key update 
     <trim suffixOverrides=",">
@@ -344,6 +380,9 @@
       </if>
       <if test="pfileInfo != null">
         pfile_info = #{pfileInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>

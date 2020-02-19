@@ -1,14 +1,15 @@
 package com.study.bean;
 
 public class Pfile {
-//    id
     private Integer pfileId;
-//    文件名，含路径
+
     private String pfileName;
-//    路径，不含文件名
+
     private String pfilePath;
-//    文件描述
+
     private String pfileInfo;
+
+    private Integer userId;
 
     public Integer getPfileId() {
         return pfileId;
@@ -42,6 +43,14 @@ public class Pfile {
         this.pfileInfo = pfileInfo == null ? null : pfileInfo.trim();
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -52,6 +61,7 @@ public class Pfile {
         sb.append(", pfileName=").append(pfileName);
         sb.append(", pfilePath=").append(pfilePath);
         sb.append(", pfileInfo=").append(pfileInfo);
+        sb.append(", userId=").append(userId);
         sb.append("]");
         return sb.toString();
     }
@@ -69,9 +79,10 @@ public class Pfile {
         }
         Pfile other = (Pfile) that;
         return (this.getPfileId() == null ? other.getPfileId() == null : this.getPfileId().equals(other.getPfileId()))
-            && (this.getPfileName() == null ? other.getPfileName() == null : this.getPfileName().equals(other.getPfileName()))
-            && (this.getPfilePath() == null ? other.getPfilePath() == null : this.getPfilePath().equals(other.getPfilePath()))
-            && (this.getPfileInfo() == null ? other.getPfileInfo() == null : this.getPfileInfo().equals(other.getPfileInfo()));
+                && (this.getPfileName() == null ? other.getPfileName() == null : this.getPfileName().equals(other.getPfileName()))
+                && (this.getPfilePath() == null ? other.getPfilePath() == null : this.getPfilePath().equals(other.getPfilePath()))
+                && (this.getPfileInfo() == null ? other.getPfileInfo() == null : this.getPfileInfo().equals(other.getPfileInfo()))
+                && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()));
     }
 
     @Override
@@ -82,6 +93,7 @@ public class Pfile {
         result = prime * result + ((getPfileName() == null) ? 0 : getPfileName().hashCode());
         result = prime * result + ((getPfilePath() == null) ? 0 : getPfilePath().hashCode());
         result = prime * result + ((getPfileInfo() == null) ? 0 : getPfileInfo().hashCode());
+        result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
         return result;
     }
 }

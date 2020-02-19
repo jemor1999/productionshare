@@ -8,6 +8,9 @@
 export default {
   name: "FormPage",
   data(){
+    return{
+
+    }
   },
   created() {
   }

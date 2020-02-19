@@ -44,13 +44,13 @@ export default {
   name: "RegisterForm",
   data() {
     return {
-      user:this.$store.state.user
+      user:this.$store.getters.getUser
     }
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-
+    //  先提交到后台
     }
   }
 }
