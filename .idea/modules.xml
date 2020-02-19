@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/productionsare.app/productionsare.app.iml" filepath="$PROJECT_DIR$/productionsare.app/productionsare.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/productionshare.web/productionshare.web.iml" filepath="$PROJECT_DIR$/productionshare.web/productionshare.web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/productionshare.web/productionshare.web1.iml" filepath="$PROJECT_DIR$/productionshare.web/productionshare.web1.iml" />
     </modules>
   </component>
 </project>
