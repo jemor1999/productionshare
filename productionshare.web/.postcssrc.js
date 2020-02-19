@@ -1,10 +1,13 @@
-// https://github.com/michael-ciniawsky/postcss-load-config
+const plugins = [
+  require('autoprefixer')
+]
+
+if (process.env.QUASAR_RTL) {
+  plugins.push(
+    require('postcss-rtl')({})
+  )
+}
 
 module.exports = {
-  "plugins": {
-    "postcss-import": {},
-    "postcss-url": {},
-    // to edit target browsers: use "browserslist" field in package.json
-    "autoprefixer": {}
-  }
+  plugins
 }
