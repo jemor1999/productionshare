@@ -76,6 +76,9 @@
     <!--@mbg.generated-->
     user_id, user_account, user_pwd, user_nick_name, user_signature, user_sex, user_head_image_location
   </sql>
+  <select id="selectByUsernameandPwd" parameterType="String" resultMap="Integer">
+    select * from user where user_account=#{user_account} and user_pwd#{user_pwd}
+  </select>
   <select id="selectByExample" parameterType="com.study.bean.UserExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select

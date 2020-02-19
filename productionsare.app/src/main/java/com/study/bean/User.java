@@ -21,6 +21,12 @@ public class User {
 //    用户头像（路径）
     private String userHeadImageLocation;
 
+    public User(String username, String userPwd, String userNickName, String userSignature, String userSex, String userimage) {
+    }
+
+    public User(String username, String userPwd) {
+    }
+
     public Integer getUserId() {
         return userId;
     }
