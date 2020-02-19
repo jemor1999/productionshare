@@ -5,7 +5,9 @@ import com.study.bean.PfileExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 @Mapper
 public interface PfileMapper {
     long countByExample(PfileExample example);
@@ -25,6 +27,8 @@ public interface PfileMapper {
     List<Pfile> selectByExample(PfileExample example);
 
     Pfile selectByPrimaryKey(Integer pfileId);
+
+    Pfile selectByUserId(Integer userid);
 
     int updateByExampleSelective(@Param("record") Pfile record, @Param("example") PfileExample example);
 

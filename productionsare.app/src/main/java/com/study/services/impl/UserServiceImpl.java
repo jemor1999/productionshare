@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService {
         //获取前端传来的数据
         String username=user.getUserAccount();//用户账户
         String userpwd= MD5.md5(user.getUserPwd());//用户密码、由于使用了MD5加密、这里加密后与数据库中数据匹配
-
         int i=userMapper.selectByUsernameandPwd(username,userpwd);//自己写的数据库语句、有可能会报错
         return i;
     }

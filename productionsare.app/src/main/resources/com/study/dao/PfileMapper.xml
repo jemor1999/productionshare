@@ -96,6 +96,13 @@
     from pfile
     where pfile_id = #{pfileId,jdbcType=INTEGER}
   </select>
+  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from pfile
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
     delete from pfile
