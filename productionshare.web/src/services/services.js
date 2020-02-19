@@ -26,5 +26,12 @@ export default {
     ).catch(
       (error) => Promise.reject(error)
     )
+  },
+  register(request = {}) {
+    return axios.post(config.baseUrl + "/user/register", request).then(
+      (response) => Promise.resolve(response)
+    ).catch(
+      (error) => Promise.reject(error)
+    )
   }
 }
