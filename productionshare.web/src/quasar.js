@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import 'quasar/dist/quasar.css'
 import 'quasar/dist/quasar.ie.polyfills'
-import lang from 'quasar/lang/zh-cn.js'
+import lang from 'quasar/lang/zh-hans'
 import '@quasar/extras/roboto-font/roboto-font.css'
 import '@quasar/extras/material-icons/material-icons.css'
 import '@quasar/extras/material-icons-outlined/material-icons-outlined.css'

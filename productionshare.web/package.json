@@ -12,6 +12,9 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "axios": "^0.19.2",
+    "bootstrap-vue": "^2.5.0",
+    "cnpm": "^6.1.1",
     "quasar": "^1.0.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
