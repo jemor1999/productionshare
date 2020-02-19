@@ -1,17 +1,34 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
-import HelloWorld from '@/components/HelloWorld'
 import FormPage from "../page/FormPage";
+import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
+  mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: FormPage
+      path: '/user/login',
+      component: FormPage,
+      children:[
+        {
+          path: '',
+          component: LoginForm
+        }
+      ]
+    },
+    {
+      path: '/user/register',
+      component: FormPage,
+      children:[
+        {
+          path: '',
+          component: RegisterForm
+        }
+      ]
     }
   ]
 })
