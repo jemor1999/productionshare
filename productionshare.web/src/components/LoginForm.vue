@@ -50,7 +50,11 @@ export default {
     }
   },
   created() {
-    console.log(this.$axios)
+    this.$axios.login(this.user).then((response) => {
+      this.$store.dispatch('login',response.data);
+    }).catch((ero) => {
+      alert("登录失败！")
+    })
   }
 }
 </script>

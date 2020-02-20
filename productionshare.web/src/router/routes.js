@@ -5,22 +5,29 @@ import FormPage from "pages/FormPage";
 import LoginForm from "components/LoginForm";
 import RegisterForm from "components/RegisterForm";
 import UserInfoPage from "pages/UserInfoPage";
+import EmptyLayout from "layouts/EmptyLayout";
 
 const routes = [
-  // {
-  //   path: '/',
-  //   component: MainLayout,
-  //   children: [
-  //     { path: '', component: Index }
-  //   ]
-  // },
+  {
+    path: '/',
+    component: MainLayout,
+    children: [
+      { path: '', component: Index }
+    ]
+  },
   {
     path: '/user/login',
-    component: FormPage,
+    component: EmptyLayout,
     children:[
       {
         path: '',
-        component: LoginForm
+        component: FormPage,
+        children:[
+          {
+            path: '',
+            component: LoginForm
+          }
+        ]
       }
     ]
   },
