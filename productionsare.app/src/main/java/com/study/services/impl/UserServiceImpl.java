@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     //这个登陆
     @Override
-    public int enterLoginUser(User user) throws NoSuchAlgorithmException {
+    public User enterLoginUser(User user) throws NoSuchAlgorithmException {
         //获取前端传来的数据
         String username=user.getUserAccount();//用户账户
         String userpwd= MD5.md5(user.getUserPwd());//用户密码、由于使用了MD5加密、这里加密后与数据库中数据匹配
@@ -30,10 +30,10 @@ public class UserServiceImpl implements UserService {
         criteria.andUserPwdEqualTo(userpwd);
         int i=0;
         List<User> userList=userMapper.selectByExample(userExample);
-        if(userList!=null){
-            i=1;
+        if(userList==null){
+           return null;
         }
-        return i;
+        return (User) userList;
     }
 
 
