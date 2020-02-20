@@ -1,6 +1,6 @@
 package com.study.services;
 
-import com.study.bean.User;
+import com.study.model.User;
 import com.study.bean.UserExample;
 import com.study.dao.UserMapper;
 import com.study.utils.MD5;

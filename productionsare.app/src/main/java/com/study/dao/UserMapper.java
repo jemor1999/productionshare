@@ -1,6 +1,6 @@
 package com.study.dao;
 
-import com.study.bean.User;
+import com.study.model.User;
 import com.study.bean.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
@@ -27,8 +27,6 @@ public interface UserMapper {
     List<User> selectByExample(UserExample example);
 
     User selectByPrimaryKey(Integer userId);
-
-    int selectByUsernameandPwd(String name,String pwd);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 

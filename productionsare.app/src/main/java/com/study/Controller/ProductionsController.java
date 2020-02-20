@@ -1,6 +1,6 @@
 package com.study.Controller;
 
-import com.study.bean.UserWithAllProductions;
+import com.study.model.UserWithAllProductions;
 import com.study.services.impl.ProductionsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

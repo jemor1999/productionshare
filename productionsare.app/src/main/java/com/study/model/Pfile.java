@@ -1,4 +1,4 @@
-package com.study.bean;
+package com.study.model;
 
 public class Pfile {
     private Integer pfileId;

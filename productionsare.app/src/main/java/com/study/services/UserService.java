@@ -1,7 +1,6 @@
 package com.study.services;
 
-import com.study.bean.User;
-import org.springframework.stereotype.Service;
+import com.study.model.User;
 
 import java.security.NoSuchAlgorithmException;
 

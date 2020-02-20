@@ -1,6 +1,6 @@
 package com.study.services;
 
-import com.study.bean.UserWithAllProductions;
+import com.study.model.UserWithAllProductions;
 
 import java.util.List;
 

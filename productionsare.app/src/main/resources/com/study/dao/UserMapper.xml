@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.study.bean.User">
+  <resultMap id="BaseResultMap" type="com.study.model.User">
     <!--@mbg.generated-->
     <!--@Table user-->
     <id column="user_id" jdbcType="INTEGER" property="userId" />
@@ -76,9 +76,6 @@
     <!--@mbg.generated-->
     user_id, user_account, user_pwd, user_nick_name, user_signature, user_sex, user_head_image_location
   </sql>
-  <select id="selectByUsernameandPwd" parameterType="String" resultMap="Integer">
-    select * from user where user_account=#{user_account} and user_pwd#{user_pwd}
-  </select>
   <select id="selectByExample" parameterType="com.study.bean.UserExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select
@@ -113,7 +110,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.study.model.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
       insert into user (user_account, user_pwd, user_nick_name,
       user_signature, user_sex, user_head_image_location
@@ -122,7 +119,7 @@
       #{userSignature,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{userHeadImageLocation,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.study.model.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -217,7 +214,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.study.bean.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.study.model.User">
     <!--@mbg.generated-->
     update user
     <set>
@@ -242,7 +239,7 @@
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.study.bean.User">
+  <update id="updateByPrimaryKey" parameterType="com.study.model.User">
     <!--@mbg.generated-->
       update user
       set user_account = #{userAccount,jdbcType=VARCHAR},
@@ -358,7 +355,7 @@
         )
     </foreach>
   </insert>
-  <insert id="insertOrUpdate" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
+  <insert id="insertOrUpdate" keyColumn="user_id" keyProperty="userId" parameterType="com.study.model.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -397,7 +394,7 @@
         user_head_image_location = #{userHeadImageLocation,jdbcType=VARCHAR},
     </trim>
   </insert>
-  <insert id="insertOrUpdateSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
+  <insert id="insertOrUpdateSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.study.model.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
