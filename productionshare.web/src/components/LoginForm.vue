@@ -36,8 +36,11 @@ export default {
   name: 'LoginForm',
   data() {
     return {
-      user:this.$store.getters.getUser
+      user:{}
     }
+  },
+  beforeCreate() {
+    this.user = this.$store.getters.getUser
   },
   methods: {
     onSubmit(evt) {
@@ -48,8 +51,6 @@ export default {
         alert("登录失败！")
       })
     }
-  },
-  created() {
   }
 }
 </script>

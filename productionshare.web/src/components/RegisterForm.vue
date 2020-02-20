@@ -25,7 +25,7 @@
 
       <q-input
         filled
-        type="password"
+        type="text"
         v-model="user.userNickName"
         label="昵称"
         lazy-rules
@@ -48,13 +48,16 @@ export default {
   name: "RegisterForm",
   data() {
     return {
-      user:this.$store.getters.getUser
+      user: {}
     }
+  },
+  beforeCreate() {
+    this.user = this.$store.getters.getUser
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-      this.$services.register(this.user).then((response) => {
+      this.$axios.register(this.user).then((response) => {
         this.$store.dispatch('login',response.data);
       }).catch((ero) => {
         alert("注册失败！")
