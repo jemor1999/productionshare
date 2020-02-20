@@ -1,8 +1,6 @@
 package com.study.services.impl;
 
 
-import com.study.bean.User;
-import com.study.dao.UserMapper;
 import com.study.services.UserService;
 import com.study.utils.MD5;
 import org.springframework.beans.factory.annotation.Autowired;

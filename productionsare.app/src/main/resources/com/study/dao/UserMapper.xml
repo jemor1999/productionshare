@@ -6,7 +6,7 @@
     <!--@Table user-->
     <id column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="user_account" jdbcType="VARCHAR" property="userAccount" />
-    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_pwd" jdbcType="CHAR" property="userPwd" />
     <result column="user_nick_name" jdbcType="VARCHAR" property="userNickName" />
     <result column="user_signature" jdbcType="VARCHAR" property="userSignature" />
     <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
@@ -76,9 +76,6 @@
     <!--@mbg.generated-->
     user_id, user_account, user_pwd, user_nick_name, user_signature, user_sex, user_head_image_location
   </sql>
-  <select id="selectByUsernameandPwd" parameterType="String" resultMap="Integer">
-    select * from user where user_account=#{user_account} and user_pwd#{user_pwd}
-  </select>
   <select id="selectByExample" parameterType="com.study.bean.UserExample" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select
@@ -115,10 +112,10 @@
   </delete>
   <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
     <!--@mbg.generated-->
-      insert into user (user_account, user_pwd, user_nick_name,
+    insert into user (user_account, user_pwd, user_nick_name, 
       user_signature, user_sex, user_head_image_location
       )
-      values (#{userAccount,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{userNickName,jdbcType=VARCHAR},
+    values (#{userAccount,jdbcType=VARCHAR}, #{userPwd,jdbcType=CHAR}, #{userNickName,jdbcType=VARCHAR}, 
       #{userSignature,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{userHeadImageLocation,jdbcType=VARCHAR}
       )
   </insert>
@@ -150,7 +147,7 @@
         #{userAccount,jdbcType=VARCHAR},
       </if>
       <if test="userPwd != null">
-          #{userPwd,jdbcType=VARCHAR},
+        #{userPwd,jdbcType=CHAR},
       </if>
       <if test="userNickName != null">
         #{userNickName,jdbcType=VARCHAR},
@@ -184,7 +181,7 @@
         user_account = #{record.userAccount,jdbcType=VARCHAR},
       </if>
       <if test="record.userPwd != null">
-          user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+        user_pwd = #{record.userPwd,jdbcType=CHAR},
       </if>
       <if test="record.userNickName != null">
         user_nick_name = #{record.userNickName,jdbcType=VARCHAR},
@@ -205,15 +202,15 @@
   </update>
   <update id="updateByExample" parameterType="map">
     <!--@mbg.generated-->
-      update user
-      set user_id = #{record.userId,jdbcType=INTEGER},
+    update user
+    set user_id = #{record.userId,jdbcType=INTEGER},
       user_account = #{record.userAccount,jdbcType=VARCHAR},
-      user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      user_pwd = #{record.userPwd,jdbcType=CHAR},
       user_nick_name = #{record.userNickName,jdbcType=VARCHAR},
       user_signature = #{record.userSignature,jdbcType=VARCHAR},
       user_sex = #{record.userSex,jdbcType=VARCHAR},
       user_head_image_location = #{record.userHeadImageLocation,jdbcType=VARCHAR}
-      <if test="_parameter != null">
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
@@ -225,7 +222,7 @@
         user_account = #{userAccount,jdbcType=VARCHAR},
       </if>
       <if test="userPwd != null">
-          user_pwd = #{userPwd,jdbcType=VARCHAR},
+        user_pwd = #{userPwd,jdbcType=CHAR},
       </if>
       <if test="userNickName != null">
         user_nick_name = #{userNickName,jdbcType=VARCHAR},
@@ -244,14 +241,14 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.study.bean.User">
     <!--@mbg.generated-->
-      update user
-      set user_account = #{userAccount,jdbcType=VARCHAR},
-      user_pwd = #{userPwd,jdbcType=VARCHAR},
+    update user
+    set user_account = #{userAccount,jdbcType=VARCHAR},
+      user_pwd = #{userPwd,jdbcType=CHAR},
       user_nick_name = #{userNickName,jdbcType=VARCHAR},
       user_signature = #{userSignature,jdbcType=VARCHAR},
       user_sex = #{userSex,jdbcType=VARCHAR},
       user_head_image_location = #{userHeadImageLocation,jdbcType=VARCHAR}
-      where user_id = #{userId,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateBatch" parameterType="java.util.List">
     <!--@mbg.generated-->
@@ -264,7 +261,7 @@
       </trim>
       <trim prefix="user_pwd = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
-            when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userPwd,jdbcType=VARCHAR}
+          when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userPwd,jdbcType=CHAR}
         </foreach>
       </trim>
       <trim prefix="user_nick_name = case" suffix="end,">
@@ -307,7 +304,7 @@
       <trim prefix="user_pwd = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
           <if test="item.userPwd != null">
-              when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userPwd,jdbcType=VARCHAR}
+            when user_id = #{item.userId,jdbcType=INTEGER} then #{item.userPwd,jdbcType=CHAR}
           </if>
         </foreach>
       </trim>
@@ -352,9 +349,8 @@
       )
     values
     <foreach collection="list" item="item" separator=",">
-        (#{item.userAccount,jdbcType=VARCHAR}, #{item.userPwd,jdbcType=VARCHAR}, #{item.userNickName,jdbcType=VARCHAR},
-        #{item.userSignature,jdbcType=VARCHAR}, #{item.userSex,jdbcType=VARCHAR},
-        #{item.userHeadImageLocation,jdbcType=VARCHAR}
+      (#{item.userAccount,jdbcType=VARCHAR}, #{item.userPwd,jdbcType=CHAR}, #{item.userNickName,jdbcType=VARCHAR}, 
+        #{item.userSignature,jdbcType=VARCHAR}, #{item.userSex,jdbcType=VARCHAR}, #{item.userHeadImageLocation,jdbcType=VARCHAR}
         )
     </foreach>
   </insert>
@@ -377,24 +373,24 @@
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>
-        #{userAccount,jdbcType=VARCHAR},
-        #{userPwd,jdbcType=VARCHAR},
-        #{userNickName,jdbcType=VARCHAR},
-        #{userSignature,jdbcType=VARCHAR},
-        #{userSex,jdbcType=VARCHAR},
-        #{userHeadImageLocation,jdbcType=VARCHAR},
+      #{userAccount,jdbcType=VARCHAR},
+      #{userPwd,jdbcType=CHAR},
+      #{userNickName,jdbcType=VARCHAR},
+      #{userSignature,jdbcType=VARCHAR},
+      #{userSex,jdbcType=VARCHAR},
+      #{userHeadImageLocation,jdbcType=VARCHAR},
     </trim>
     on duplicate key update 
     <trim suffixOverrides=",">
       <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
       </if>
-        user_account = #{userAccount,jdbcType=VARCHAR},
-        user_pwd = #{userPwd,jdbcType=VARCHAR},
-        user_nick_name = #{userNickName,jdbcType=VARCHAR},
-        user_signature = #{userSignature,jdbcType=VARCHAR},
-        user_sex = #{userSex,jdbcType=VARCHAR},
-        user_head_image_location = #{userHeadImageLocation,jdbcType=VARCHAR},
+      user_account = #{userAccount,jdbcType=VARCHAR},
+      user_pwd = #{userPwd,jdbcType=CHAR},
+      user_nick_name = #{userNickName,jdbcType=VARCHAR},
+      user_signature = #{userSignature,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_head_image_location = #{userHeadImageLocation,jdbcType=VARCHAR},
     </trim>
   </insert>
   <insert id="insertOrUpdateSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.study.bean.User" useGeneratedKeys="true">
@@ -432,7 +428,7 @@
         #{userAccount,jdbcType=VARCHAR},
       </if>
       <if test="userPwd != null">
-          #{userPwd,jdbcType=VARCHAR},
+        #{userPwd,jdbcType=CHAR},
       </if>
       <if test="userNickName != null">
         #{userNickName,jdbcType=VARCHAR},
@@ -456,7 +452,7 @@
         user_account = #{userAccount,jdbcType=VARCHAR},
       </if>
       <if test="userPwd != null">
-          user_pwd = #{userPwd,jdbcType=VARCHAR},
+        user_pwd = #{userPwd,jdbcType=CHAR},
       </if>
       <if test="userNickName != null">
         user_nick_name = #{userNickName,jdbcType=VARCHAR},

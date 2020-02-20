@@ -1,19 +1,51 @@
+import MainLayout from "layouts/MainLayout";
+import Index from "pages/Index";
+import Error404 from "pages/Error404";
+import FormPage from "pages/FormPage";
+import LoginForm from "components/LoginForm";
+import RegisterForm from "components/RegisterForm";
+import UserInfoPage from "pages/UserInfoPage";
 
 const routes = [
+  // {
+  //   path: '/',
+  //   component: MainLayout,
+  //   children: [
+  //     { path: '', component: Index }
+  //   ]
+  // },
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Index.vue') }
+    path: '/user/login',
+    component: FormPage,
+    children:[
+      {
+        path: '',
+        component: LoginForm
+      }
     ]
+  },
+  {
+    path: '/user/register',
+    component: FormPage,
+    children:[
+      {
+        path: '',
+        component: RegisterForm
+      }
+    ]
+  },
+  {
+    path: '/user/info',
+    component: UserInfoPage
   }
 ]
+
 
 // Always leave this as last one
 if (process.env.MODE !== 'ssr') {
   routes.push({
     path: '*',
-    component: () => import('pages/Error404.vue')
+    component: Error404
   })
 }
 

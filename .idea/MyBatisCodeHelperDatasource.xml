@@ -66,7 +66,6 @@
           </map>
         </option>
         <option name="updateBatch" value="true" />
-        <option name="updateBatchSelective" value="true" />
         <option name="useExample" value="true" />
         <option name="xmlMapperPackage" value="com.study.dao" />
         <option name="xmlMapperPath" value="$PROJECT_DIR$/productionsare.app/src/main/resources" />

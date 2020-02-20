@@ -5,9 +5,7 @@ import com.study.bean.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
-@Repository
 @Mapper
 public interface UserMapper {
     long countByExample(UserExample example);
@@ -27,8 +25,6 @@ public interface UserMapper {
     List<User> selectByExample(UserExample example);
 
     User selectByPrimaryKey(Integer userId);
-
-    int selectByUsernameandPwd(String name,String pwd);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 

@@ -1,10 +1,8 @@
 package com.study.services.impl;
 
 import com.study.bean.Pfile;
-import com.study.bean.User;
 import com.study.bean.UserWithAllProductions;
 import com.study.dao.PfileMapper;
-import com.study.dao.UserMapper;
 import com.study.services.ProductionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

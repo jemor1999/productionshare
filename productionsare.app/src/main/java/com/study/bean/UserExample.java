@@ -234,73 +234,73 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdIsNull() {
-            addCriterion("user_owd is null");
+        public Criteria andUserPwdIsNull() {
+            addCriterion("user_pwd is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdIsNotNull() {
-            addCriterion("user_owd is not null");
+        public Criteria andUserPwdIsNotNull() {
+            addCriterion("user_pwd is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdEqualTo(String value) {
-            addCriterion("user_owd =", value, "userOwd");
+        public Criteria andUserPwdEqualTo(String value) {
+            addCriterion("user_pwd =", value, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdNotEqualTo(String value) {
-            addCriterion("user_owd <>", value, "userOwd");
+        public Criteria andUserPwdNotEqualTo(String value) {
+            addCriterion("user_pwd <>", value, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdGreaterThan(String value) {
-            addCriterion("user_owd >", value, "userOwd");
+        public Criteria andUserPwdGreaterThan(String value) {
+            addCriterion("user_pwd >", value, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdGreaterThanOrEqualTo(String value) {
-            addCriterion("user_owd >=", value, "userOwd");
+        public Criteria andUserPwdGreaterThanOrEqualTo(String value) {
+            addCriterion("user_pwd >=", value, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdLessThan(String value) {
-            addCriterion("user_owd <", value, "userOwd");
+        public Criteria andUserPwdLessThan(String value) {
+            addCriterion("user_pwd <", value, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdLessThanOrEqualTo(String value) {
-            addCriterion("user_owd <=", value, "userOwd");
+        public Criteria andUserPwdLessThanOrEqualTo(String value) {
+            addCriterion("user_pwd <=", value, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdLike(String value) {
-            addCriterion("user_owd like", value, "userOwd");
+        public Criteria andUserPwdLike(String value) {
+            addCriterion("user_pwd like", value, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdNotLike(String value) {
-            addCriterion("user_owd not like", value, "userOwd");
+        public Criteria andUserPwdNotLike(String value) {
+            addCriterion("user_pwd not like", value, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdIn(List<String> values) {
-            addCriterion("user_owd in", values, "userOwd");
+        public Criteria andUserPwdIn(List<String> values) {
+            addCriterion("user_pwd in", values, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdNotIn(List<String> values) {
-            addCriterion("user_owd not in", values, "userOwd");
+        public Criteria andUserPwdNotIn(List<String> values) {
+            addCriterion("user_pwd not in", values, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdBetween(String value1, String value2) {
-            addCriterion("user_owd between", value1, value2, "userOwd");
+        public Criteria andUserPwdBetween(String value1, String value2) {
+            addCriterion("user_pwd between", value1, value2, "userPwd");
             return (Criteria) this;
         }
 
-        public Criteria andUserOwdNotBetween(String value1, String value2) {
-            addCriterion("user_owd not between", value1, value2, "userOwd");
+        public Criteria andUserPwdNotBetween(String value1, String value2) {
+            addCriterion("user_pwd not between", value1, value2, "userPwd");
             return (Criteria) this;
         }
 
