@@ -13,14 +13,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/")
 public class UserCollection {
     @Autowired
     UserServiceImpl userService;
 
     @ResponseBody
     @CrossOrigin//解析路由
-    @RequestMapping("login")
+    @RequestMapping("user/login")
     public User enterLogin(@RequestBody User user) throws NoSuchAlgorithmException {
           //将前端获取到得数据
         String username=user.getUserAccount();
@@ -30,7 +29,7 @@ public class UserCollection {
     }
     @ResponseBody
     @CrossOrigin//解析路由
-    @RequestMapping("regit")
+    @RequestMapping("user/regit")
   public User regitUser(@RequestBody User user){
 //        String username=user.getUserAccount();
 //        String userPwd=user.getUserPwd();

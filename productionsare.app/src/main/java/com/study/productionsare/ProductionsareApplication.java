@@ -12,6 +12,6 @@ public class ProductionsareApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ProductionsareApplication.class, args);
-
+        System.out.println("springboot 启动成功");
     }
 }
