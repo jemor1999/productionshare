@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
+
 @Controller
-@RequestMapping("/")
-public class UserCollection {
+public class UserController {
     @Autowired
     UserServiceImpl userService;
 
     @ResponseBody
     @CrossOrigin//解析路由
-    @RequestMapping("login")
-    public User enterLogin(@RequestBody User user) throws NoSuchAlgorithmException {
+    @RequestMapping("user/login")
+    public User login(@RequestBody User user) throws NoSuchAlgorithmException {
           //将前端获取到得数据
         String username=user.getUserAccount();
         String userPwd=user.getUserPwd();
@@ -30,8 +30,8 @@ public class UserCollection {
     }
     @ResponseBody
     @CrossOrigin//解析路由
-    @RequestMapping("regit")
-  public User regitUser(@RequestBody User user){
+    @RequestMapping("user/register")
+  public User register(@RequestBody User user){
 //        String username=user.getUserAccount();
 //        String userPwd=user.getUserPwd();
 //        String  userNickName=user.getUserNickName();
