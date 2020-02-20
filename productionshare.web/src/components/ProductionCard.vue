@@ -1,24 +1,46 @@
 <template>
-  <div>
-    <b-card align="left" img-src="https://picsum.photos/300/300/?image=41" img-alt="Image" img-top>
-      <b-card-text class="text-truncate text-nowrap">
+  <div class="production-card">
+    <q-card class="my-card">
+      <q-img
+        src="https://cdn.quasar.dev/img/parallax2.jpg"
+        basic
+      >
+        <div class="absolute-bottom text-weight-medium production-card-title">
+          作品名
+        </div>
+      </q-img>
 
-      </b-card-text>
-      <b-card-text class="text-truncate text-nowrap">
-        <p class="">用户名</p>
-        作品描述偶发的`阿斯偶发凯撒是假的阿卡发酵饲料骄傲反动势力就放奥数哦idassdioj熬稃是假的定量分块调节阀阿斯
-      </b-card-text>
-    </b-card>
+      <q-card-section class="production-card-info">
+        作品描述作品描述作品描述作品描述作品描述作品描述作品描述作品描述作品描述
+      </q-card-section>
+    </q-card>
   </div>
 </template>
 
 <script>
-    export default {
-        name: "ProductionCard"
+  export default {
+    name: "ProductionCard",
+    data(){
+      return{
+        production:{}
+      }
     }
+  }
 
 </script>
 
 <style scoped>
-
+  .production-card{
+    width: 200px;
+    margin: 0 auto;
+  }
+  .production-card-title{
+    font-size: 12px;
+    line-height: 25px;
+    padding: 5px;
+  }
+  .production-card-info{
+    font-size: 12px;
+    padding: 5px;
+  }
 </style>
