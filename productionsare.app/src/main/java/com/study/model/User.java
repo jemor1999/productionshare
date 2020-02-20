@@ -15,6 +15,12 @@ public class User {
 
     private String userHeadImageLocation;
 
+    public User(String username, String userPwd) {
+    }
+
+    public User(String username, String userPwd, String userNickName, String userSignature, String userSex, String userimage) {
+    }
+
     public Integer getUserId() {
         return userId;
     }
