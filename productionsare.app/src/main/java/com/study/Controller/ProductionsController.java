@@ -1,5 +1,6 @@
 package com.study.Controller;
 
+import com.study.bean.UserExample;
 import com.study.model.UserWithAllProductions;
 import com.study.services.impl.ProductionsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,8 @@ public class ProductionsController {
     @ResponseBody
     @CrossOrigin//解析路由
     @RequestMapping("ALLProductions")
-public List<UserWithAllProductions> returnUserWithAllProductions(@RequestBody Integer Userid){
-
-        ArrayList<UserWithAllProductions>  userArraylist= (ArrayList<UserWithAllProductions>) productionsService.selectProductions(Userid);
-    return userArraylist;
+public UserWithAllProductions returnUserWithAllProductions(@RequestBody String UserAccount){
+    UserWithAllProductions userWithAllProductions=productionsService.selectProductions(UserAccount);
+    return userWithAllProductions;
 }
 }

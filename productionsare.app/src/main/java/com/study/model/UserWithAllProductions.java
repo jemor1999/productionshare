@@ -1,14 +1,13 @@
 package com.study.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserWithAllProductions {
     //    用户id
     private Integer userId;
     //    用户帐号
     private String userAccount;
-    //    用户密码
-    private String userPwd;
     //    用户昵称
     private String userNickName;
     //    用户个性签名
@@ -17,18 +16,28 @@ public class UserWithAllProductions {
     private String userSex;
     //    用户头像（路径）
     private String userHeadImageLocation;
-    //用户作品集合
-    private ArrayList<String>  pfiles;
+    //用户作品信息
+    private Integer pfileId;
 
-    public UserWithAllProductions(Integer userId, String userAccount, String userPwd, String userNickName, String userSignature, String userSex, String userHeadImageLocation, ArrayList<String> pfileArrayList) {
-        this.userId=userId;
-        this.userAccount=userAccount;
-        this.userPwd=userPwd;
+    private String pfileName;
+
+    private String pfilePath;
+
+    private String pfileInfo;
+
+    public UserWithAllProductions(int userid, String userAccounts,
+                                  String userNickName, String userSignature, String userSex, String userHeadImageLocation,
+                                  Integer pfileId, String pfileName, String pfilePath, String pfileInfo) {
+        this.userId=userid;
+        this.userAccount=userAccounts;
         this.userNickName=userNickName;
         this.userSignature=userSignature;
         this.userSex=userSex;
         this.userHeadImageLocation=userHeadImageLocation;
-        this.pfiles=pfileArrayList;
+        this.pfileId=pfileId;
+        this.pfileName=pfileName;
+        this.pfilePath=pfilePath;
+        this.pfileInfo=pfileInfo;
     }
 
     public Integer getUserId() {
@@ -47,13 +56,6 @@ public class UserWithAllProductions {
         this.userAccount = userAccount;
     }
 
-    public String getUserPwd() {
-        return userPwd;
-    }
-
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd;
-    }
 
     public String getUserNickName() {
         return userNickName;
@@ -87,11 +89,36 @@ public class UserWithAllProductions {
         this.userHeadImageLocation = userHeadImageLocation;
     }
 
-    public ArrayList<String> getPfiles() {
-        return pfiles;
+    public Integer getPfileId() {
+        return pfileId;
     }
 
-    public void setPfiles(ArrayList<String> pfiles) {
-        this.pfiles = pfiles;
+    public void setPfileId(Integer pfileId) {
+        this.pfileId = pfileId;
     }
+
+    public String getPfileName() {
+        return pfileName;
+    }
+
+    public void setPfileName(String pfileName) {
+        this.pfileName = pfileName;
+    }
+
+    public String getPfilePath() {
+        return pfilePath;
+    }
+
+    public void setPfilePath(String pfilePath) {
+        this.pfilePath = pfilePath;
+    }
+
+    public String getPfileInfo() {
+        return pfileInfo;
+    }
+
+    public void setPfileInfo(String pfileInfo) {
+        this.pfileInfo = pfileInfo;
+    }
+
 }

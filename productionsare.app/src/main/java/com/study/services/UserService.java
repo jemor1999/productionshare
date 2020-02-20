@@ -1,5 +1,7 @@
 package com.study.services;
 
+import com.study.model.User;
+
 import java.security.NoSuchAlgorithmException;
 
 
