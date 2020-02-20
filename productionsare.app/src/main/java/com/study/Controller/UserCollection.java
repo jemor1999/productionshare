@@ -1,6 +1,5 @@
 package com.study.Controller;
 
-import com.study.model.User;
 import com.study.services.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

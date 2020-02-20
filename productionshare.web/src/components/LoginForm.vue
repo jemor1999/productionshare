@@ -1,33 +1,33 @@
 <template>
-  <div class="row">
-    <div class="col-4 offset-4">
-      <b-form @submit="onSubmit" class="text-left">
+<!--  <div class="row">-->
+<!--    <div class="col-4 offset-4">-->
+<!--      <b-form @submit="onSubmit" class="text-left">-->
 
-        <b-form-input
-          id="input-account"
-          v-model="user.userAccount"
-          type="text"
-          required
-          placeholder="帐号"
-        ></b-form-input>
-        <br>
+<!--        <b-form-input-->
+<!--          id="input-account"-->
+<!--          v-model="user.userAccount"-->
+<!--          type="text"-->
+<!--          required-->
+<!--          placeholder="帐号"-->
+<!--        ></b-form-input>-->
+<!--        <br>-->
 
-        <b-form-input
-          id="input-pwd"
-          v-model="user.userPwd"
-          type="password"
-          required
-          placeholder="密码"
-        ></b-form-input>
-        <br>
+<!--        <b-form-input-->
+<!--          id="input-pwd"-->
+<!--          v-model="user.userPwd"-->
+<!--          type="password"-->
+<!--          required-->
+<!--          placeholder="密码"-->
+<!--        ></b-form-input>-->
+<!--        <br>-->
 
-        <b-button type="submit" variant="primary">登录</b-button>
-      </b-form>
-      <br>
-      <br>
-      <router-link v-bind:to="{path:'/user/register'}">还没有注册？</router-link>
-    </div>
-  </div>
+<!--        <b-button type="submit" variant="primary">登录</b-button>-->
+<!--      </b-form>-->
+<!--      <br>-->
+<!--      <br>-->
+<!--      <router-link v-bind:to="{path:'/user/register'}">还没有注册？</router-link>-->
+<!--    </div>-->
+<!--  </div>-->
 
 </template>
 
@@ -42,12 +42,19 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-      this.$services.login(this.user).then((response) => {
+      this.$axios.login(this.user).then((response) => {
         this.$store.dispatch('login',response.data);
       }).catch((ero) => {
         alert("登录失败！")
       })
     }
+  },
+  created() {
+    this.$axios.login(this.user).then((response) => {
+      this.$store.dispatch('login',response.data);
+    }).catch((ero) => {
+      alert("登录失败！")
+    })
   }
 }
 </script>

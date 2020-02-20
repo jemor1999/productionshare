@@ -248,44 +248,6 @@
       #{item.pfileId,jdbcType=INTEGER}
     </foreach>
   </update>
-  <update id="updateBatchSelective" parameterType="java.util.List">
-    <!--@mbg.generated-->
-    update pfile
-    <trim prefix="set" suffixOverrides=",">
-      <trim prefix="pfile_name = case" suffix="end,">
-        <foreach collection="list" index="index" item="item">
-          <if test="item.pfileName != null">
-            when pfile_id = #{item.pfileId,jdbcType=INTEGER} then #{item.pfileName,jdbcType=VARCHAR}
-          </if>
-        </foreach>
-      </trim>
-      <trim prefix="pfile_path = case" suffix="end,">
-        <foreach collection="list" index="index" item="item">
-          <if test="item.pfilePath != null">
-            when pfile_id = #{item.pfileId,jdbcType=INTEGER} then #{item.pfilePath,jdbcType=VARCHAR}
-          </if>
-        </foreach>
-      </trim>
-      <trim prefix="pfile_info = case" suffix="end,">
-        <foreach collection="list" index="index" item="item">
-          <if test="item.pfileInfo != null">
-            when pfile_id = #{item.pfileId,jdbcType=INTEGER} then #{item.pfileInfo,jdbcType=VARCHAR}
-          </if>
-        </foreach>
-      </trim>
-      <trim prefix="user_id = case" suffix="end,">
-        <foreach collection="list" index="index" item="item">
-          <if test="item.userId != null">
-            when pfile_id = #{item.pfileId,jdbcType=INTEGER} then #{item.userId,jdbcType=INTEGER}
-          </if>
-        </foreach>
-      </trim>
-    </trim>
-    where pfile_id in
-    <foreach close=")" collection="list" item="item" open="(" separator=", ">
-      #{item.pfileId,jdbcType=INTEGER}
-    </foreach>
-  </update>
   <insert id="batchInsert" keyColumn="pfile_id" keyProperty="pfileId" parameterType="map" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into pfile

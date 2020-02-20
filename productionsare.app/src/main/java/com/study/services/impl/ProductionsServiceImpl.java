@@ -1,9 +1,8 @@
 package com.study.services.impl;
 
-import com.study.bean.PfileExample;
-import com.study.model.Pfile;
-import com.study.model.User;
-import com.study.model.UserWithAllProductions;
+import com.study.bean.Pfile;
+import com.study.bean.User;
+import com.study.bean.UserWithAllProductions;
 import com.study.dao.PfileMapper;
 import com.study.dao.UserMapper;
 import com.study.services.ProductionsService;
@@ -25,9 +24,6 @@ public class ProductionsServiceImpl implements ProductionsService {
         //查询相关用户的相关信息
         User UserArr=userMapper.selectByPrimaryKey(userid);
         //查询相关用户所有的文件信息
-        PfileExample pfileExample=new PfileExample();
-        PfileExample.Criteria criteria=pfileExample.createCriteria();
-
         Pfile pfiles=pfileMapper.selectByUserId(userid);//这个是自己写的mybatis语句、有可能出错
         //将Pfile的信息传入数组
         ArrayList<String> pfileArrayList=new ArrayList<String>();
