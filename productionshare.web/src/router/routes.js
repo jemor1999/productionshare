@@ -33,11 +33,17 @@ const routes = [
   },
   {
     path: '/user/register',
-    component: FormPage,
+    component: EmptyLayout,
     children:[
       {
         path: '',
-        component: RegisterForm
+        component: FormPage,
+        children:[
+          {
+            path: '',
+            component: RegisterForm
+          }
+        ]
       }
     ]
   },

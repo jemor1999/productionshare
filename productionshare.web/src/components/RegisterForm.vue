@@ -1,42 +1,46 @@
 <template>
-<div class="row">
-  <div class="col-4 offset-4">
-    <b-form @submit="onSubmit" class="text-left">
-
-      <b-form-input
-        id="input-account"
+  <div class="q-pa-lg">
+    <q-form
+      @submit="onSubmit"
+      class="q-gutter-md"
+    >
+      <q-input
+        filled
         v-model="user.userAccount"
-        type="text"
-        required
-        placeholder="帐号"
-      ></b-form-input>
-      <br>
+        label="帐号"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || '请输入帐号']"
+      />
 
-      <b-form-input
-        id="input-pwd"
-        v-model="user.userPwd"
+      <q-input
+        filled
         type="password"
-        required
-        placeholder="密码"
-      ></b-form-input>
-      <br>
+        v-model="user.userPwd"
+        label="密码"
+        lazy-rules
+        :rules="[
+          val => val !== null && val !== '' || '请输入密码'
+        ]"
+      />
 
-      <b-form-input
-        id="input-nick-name"
+      <q-input
+        filled
+        type="password"
         v-model="user.userNickName"
-        type="text"
-        required
-        placeholder="昵称"
-      ></b-form-input>
-      <br>
+        label="昵称"
+        lazy-rules
+        :rules="[
+          val => val !== null && val !== '' || '请输入昵称'
+        ]"
+      />
 
-      <b-button type="submit" variant="primary">注册</b-button>
-    </b-form>
-    <br>
-    <br>
-    <router-link v-bind:to="{path:'/user/login'}">已经有帐号？</router-link>
+      <div>
+        <q-btn label="注册" type="submit" color="primary" class="q-mr-lg"/>
+        <router-link v-bind:to="{path:'/user/login'}">已经有帐号？</router-link>
+      </div>
+    </q-form>
+
   </div>
-</div>
 </template>
 
 <script>

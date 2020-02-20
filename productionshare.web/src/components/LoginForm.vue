@@ -1,34 +1,34 @@
 <template>
-<!--  <div class="row">-->
-<!--    <div class="col-4 offset-4">-->
-<!--      <b-form @submit="onSubmit" class="text-left">-->
+  <div class="q-pa-lg">
+    <q-form
+      @submit="onSubmit"
+      class="q-gutter-md"
+    >
+      <q-input
+        filled
+        v-model="user.userAccount"
+        label="帐号"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || '请输入帐号']"
+      />
 
-<!--        <b-form-input-->
-<!--          id="input-account"-->
-<!--          v-model="user.userAccount"-->
-<!--          type="text"-->
-<!--          required-->
-<!--          placeholder="帐号"-->
-<!--        ></b-form-input>-->
-<!--        <br>-->
+      <q-input
+        filled
+        type="password"
+        v-model="user.userPwd"
+        label="密码"
+        lazy-rules
+        :rules="[
+          val => val !== null && val !== '' || '请输入密码'
+        ]"
+      />
 
-<!--        <b-form-input-->
-<!--          id="input-pwd"-->
-<!--          v-model="user.userPwd"-->
-<!--          type="password"-->
-<!--          required-->
-<!--          placeholder="密码"-->
-<!--        ></b-form-input>-->
-<!--        <br>-->
-
-<!--        <b-button type="submit" variant="primary">登录</b-button>-->
-<!--      </b-form>-->
-<!--      <br>-->
-<!--      <br>-->
-<!--      <router-link v-bind:to="{path:'/user/register'}">还没有注册？</router-link>-->
-<!--    </div>-->
-<!--  </div>-->
-
+      <div>
+        <q-btn label="登录" type="submit" color="primary" class="q-mr-lg"/>
+        <router-link v-bind:to="{path:'/user/register'}">还没有注册？</router-link>
+      </div>
+    </q-form>
+  </div>
 </template>
 
 <script>
@@ -50,11 +50,6 @@ export default {
     }
   },
   created() {
-    this.$axios.login(this.user).then((response) => {
-      this.$store.dispatch('login',response.data);
-    }).catch((ero) => {
-      alert("登录失败！")
-    })
   }
 }
 </script>

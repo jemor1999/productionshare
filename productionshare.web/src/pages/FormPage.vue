@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <router-view/>
+  <div class="form-position">
+    <div class="form-size">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -19,5 +21,8 @@ export default {
 </script>
 
 <style scoped>
-
+.form-size{
+  width: 400px;
+  margin: 0 auto;
+}
 </style>

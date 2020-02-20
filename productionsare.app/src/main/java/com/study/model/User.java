@@ -1,38 +1,19 @@
 package com.study.model;
 
-import com.study.utils.MD5;
-
-import java.security.NoSuchAlgorithmException;
-
 public class User {
-//    用户id
     private Integer userId;
-//    用户帐号
+
     private String userAccount;
-//    用户密码
+
     private String userPwd;
-//    用户昵称
+
     private String userNickName;
-//    用户个性签名
+
     private String userSignature;
-//    用户性别
+
     private String userSex;
-//    用户头像（路径）
+
     private String userHeadImageLocation;
-
-    public User(String username, String userPwd, String userNickName, String userSignature, String userSex, String userimage) {
-        this.userAccount=username;
-        this.userPwd=userPwd;
-        this.userNickName=userNickName;
-        this.userSignature=userSignature;
-        this.userSex=userSex;
-        this.userHeadImageLocation=userimage;
-    }
-
-    public User(String username, String userPwd) {
-        this.userAccount=username;
-        this.userPwd=userPwd;
-    }
 
     public Integer getUserId() {
         return userId;
@@ -54,12 +35,8 @@ public class User {
         return userPwd;
     }
 
-    public void setUserPwd(String userPwd) throws NoSuchAlgorithmException {
-        if (userPwd  == null){
-            this.userPwd = null;
-        }else {
-            this.userPwd = MD5.md5(userPwd.trim());
-        }
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd == null ? null : userPwd.trim();
     }
 
     public String getUserNickName() {
