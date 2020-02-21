@@ -9,10 +9,12 @@ import com.study.utils.MD5;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 @Service
+@Resource
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -40,6 +42,7 @@ public class UserServiceImpl implements UserService {
     //这个注册
     @Override
     public int regitUser(User user) {
+
         int i=userMapper.insert(user);
         return i;
     }
