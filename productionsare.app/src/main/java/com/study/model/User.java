@@ -30,6 +30,10 @@ public class User {
      this.userHeadImageLocation=userimage;
     }
 
+    public User() {
+        super();
+    }
+
     public Integer getUserId() {
         return userId;
     }
