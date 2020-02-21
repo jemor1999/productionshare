@@ -35,5 +35,26 @@ Vue.prototype.$axios = {
     ).catch(
       (error) => Promise.reject(error)
     )
+  },
+  // allProductionsOfThisUser(request = {}) {
+  //   return axios.post(config.baseUrl + "/user/allProductions", request).then(
+  //     (response) => Promise.resolve(response)
+  //   ).catch(
+  //     (error) => Promise.reject(error)
+  //   )
+  // },
+  // allProductionsOfOtherUser(request = {}) {
+  //   return axios.post(config.baseUrl + "/user/"+request.userId, request).then(
+  //     (response) => Promise.resolve(response)
+  //   ).catch(
+  //     (error) => Promise.reject(error)
+  //   )
+  // },
+  allProductions(request = {}) {
+    return axios.post(config.baseUrl + "/user/"+request.userId, request).then(
+      (response) => Promise.resolve(response)
+    ).catch(
+      (error) => Promise.reject(error)
+    )
   }
 }

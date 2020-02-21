@@ -23,6 +23,8 @@
                   <option name="javaMapperPath" value="$PROJECT_DIR$/productionsare.app/src/main/java" />
                   <option name="javaModelPacakge" value="com.study.bean" />
                   <option name="javaModelPath" value="$PROJECT_DIR$/productionsare.app/src/main/java" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/productionsare.app/src/main/java" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/productionsare.app/src/main/java" />
                   <option name="xmlPackage" value="com.study.dao" />
                   <option name="xmlPath" value="$PROJECT_DIR$/productionsare.app/src/main/resources" />
                 </UserPackageAndPathInfoByModule>

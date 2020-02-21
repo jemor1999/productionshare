@@ -6,7 +6,7 @@
         basic
       >
         <div class="absolute-bottom text-weight-medium production-card-title">
-          作品名
+          {{production}}
         </div>
       </q-img>
 
@@ -20,9 +20,10 @@
 <script>
   export default {
     name: "ProductionCard",
+    props:["production"],
     data(){
       return{
-        production:{}
+
       }
     }
   }
@@ -32,7 +33,7 @@
 <style scoped>
   .production-card{
     width: 200px;
-    margin: 0 auto;
+    margin: 10px auto;
   }
   .production-card-title{
     font-size: 12px;

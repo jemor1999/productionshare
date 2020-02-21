@@ -48,8 +48,15 @@ const routes = [
     ]
   },
   {
-    path: '/user/info',
-    component: UserInfoPage
+    path: '/user',
+    component: EmptyLayout,
+    children:[
+      {
+        path: ':userId',
+        component: UserInfoPage,
+        props: true
+      }
+    ]
   }
 ]
 
