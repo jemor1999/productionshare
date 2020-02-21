@@ -1,5 +1,9 @@
 package com.study.model;
 
+import com.study.utils.MD5;
+
+import java.security.NoSuchAlgorithmException;
+
 public class User {
     private Integer userId;
 
@@ -21,9 +25,9 @@ public class User {
     }
 
     public User(String username, String userPwd, String userNickName,
-                String userSignature, String userSex, String userimage) {
+                String userSignature, String userSex, String userimage) throws NoSuchAlgorithmException {
      this.userAccount=username;
-     this.userPwd=userPwd;
+     this.userPwd=MD5.md5(userPwd);
      this.userNickName=userNickName;
      this.userSignature=userSignature;
      this.userSex=userSex;
@@ -54,8 +58,8 @@ public class User {
         return userPwd;
     }
 
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd == null ? null : userPwd.trim();
+    public void setUserPwd(String userPwd) throws NoSuchAlgorithmException {
+        this.userPwd = userPwd == null ? null : MD5.md5(userPwd.trim());
     }
 
     public String getUserNickName() {

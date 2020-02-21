@@ -32,10 +32,12 @@ public class UserServiceImpl implements UserService {
         criteria.andUserPwdEqualTo(userpwd);
         int i=0;
         List<User> userList=userMapper.selectByExample(userExample);
+        User users=new User(String.valueOf(userList.get(0).getUserId()),userList.get(0).getUserAccount(),userList.get(0).getUserNickName(),
+                userList.get(0).getUserSignature(),userList.get(0).getUserSex(),userList.get(0).getUserHeadImageLocation());
         if(userList==null){
            return null;
         }
-        return (User) userList;
+        return users;
     }
 
 
