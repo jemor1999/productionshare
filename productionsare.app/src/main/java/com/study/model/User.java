@@ -16,9 +16,18 @@ public class User {
     private String userHeadImageLocation;
 
     public User(String username, String userPwd) {
+        this.userAccount=username;
+        this.userPwd=userPwd;
     }
 
-    public User(String username, String userPwd, String userNickName, String userSignature, String userSex, String userimage) {
+    public User(String username, String userPwd, String userNickName,
+                String userSignature, String userSex, String userimage) {
+     this.userAccount=username;
+     this.userPwd=userPwd;
+     this.userNickName=userNickName;
+     this.userSignature=userSignature;
+     this.userSex=userSex;
+     this.userHeadImageLocation=userimage;
     }
 
     public Integer getUserId() {
